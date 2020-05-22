@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "standard-application.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    helm.sh/chart: {{ include "standard-application.chart" . }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    {{- range $index, $item := .Values.ports }}
+    - port: {{ $item.servicePort }}
+      targetPort: {{ $item.name }}
+      protocol: {{ $item.protocol }}
+      name: {{ $item.name }}
+    {{- end }}
+  selector:
+    app.selector: {{ include "standard-application.fullname" . }}

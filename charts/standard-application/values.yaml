@@ -1,0 +1,115 @@
+# Default values for standard-application.
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: xxxxx
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+namespace: "default"
+
+labels: {}
+  # app: api-xxx
+  # foo: bar
+
+#
+# Deployment variables
+#
+container:
+  command: []
+  # - foo
+  # - bar
+  args: []
+  # - foo2
+  # - bar2
+
+containerSpecOptions: {}
+  # dnsPolicy: ClusterFirst
+  # restartPolicy: Always
+  # schedulerName: default-scheduler
+  # terminationGracePeriodSeconds: 30
+
+env:
+  # Values in the base environment will be applied across all environments, and are NOT expected to be overridden
+  # on a per-environment basis
+  base: []
+  # - name: foo
+  #   value: bar
+
+  # Values in perEnv will be local to an environment
+  perEnv: []
+  # - name: bar
+  #   value: foo
+
+strategy: {}
+  # type: Recreate
+  # rollingUpdate:
+  #   maxSurge: 1
+  #   maxUnavailable: 1
+
+useLiveNew: true
+
+ports: []
+# - name: http
+#   protocol: TCP
+#   containerPort: 80
+
+livenessProbe: {}
+  # httpGet:
+  #   path: /
+  #   port: http
+readinessProbe: {}
+  # httpGet:
+  #   path: /
+  #   port: http
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  paths: []
+    # - path: /api
+    #   servicePort: http
+  hosts:
+    - chart-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+servicemonitor:
+  enabled: false
+
+#
+# Service variables
+#
+service:
+  type: ClusterIP
+  port: 80
