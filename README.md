@@ -13,6 +13,18 @@ This repository hosts ManagedKube's [Helm](https://helm.sh) charts. Chart docume
 helm repo add managedkube https://helm-charts.managedkube.com
 helm repo update
 ```
+## Chart test
+```
+docker run -it \
+-v ${PWD}:/opt/app \
+quay.io/helmpack/chart-testing:v3.0.0-rc.1 sh
+```
+
+run linter:
+```
+cd /opt/app/charts
+ct lint --config /opt/app/.github/ct.yaml
+```
 
 ## Run your own helm-chart repo
 

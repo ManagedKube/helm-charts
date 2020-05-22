@@ -9,11 +9,13 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    {{- range $index, $item := .Values.ports }}
+    {{- range $index, $container := .Values.containers }}
+      {{- range $index, $item := $container.ports }}
     - port: {{ $item.servicePort }}
       targetPort: {{ $item.name }}
       protocol: {{ $item.protocol }}
       name: {{ $item.name }}
+      {{- end }}
     {{- end }}
   selector:
     app.selector: {{ include "standard-application.fullname" . }}

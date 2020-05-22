@@ -1,15 +1,17 @@
 fullnameOverride: "test-app"
 namespace: test1
 
-image:
-  repository: gcr.io/google_containers/echoserver
-  tag: "1.10"
+containers:
+- name: container-name
+  image:
+    repository: gcr.io/google_containers/echoserver
+    tag: "1.10"
 
-ports:
-- name: http
-  protocol: TCP
-  containerPort: 8080
-  servicePort: 8080
+  ports:
+  - name: http
+    protocol: TCP
+    containerPort: 8080
+    servicePort: 8080
 
 ingress:
   enabled: true

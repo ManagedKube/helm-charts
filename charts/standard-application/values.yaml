@@ -2,11 +2,6 @@
 
 replicaCount: 1
 
-image:
-  repository: nginx
-  tag: xxxxx
-  pullPolicy: IfNotPresent
-
 nameOverride: ""
 fullnameOverride: ""
 
@@ -19,7 +14,12 @@ labels: {}
 #
 # Deployment variables
 #
-container:
+containers:
+- name: container-name
+  image:
+    repository: nginx
+    tag: xxxxx
+    pullPolicy: IfNotPresent
   command: []
   # - foo
   # - bar
@@ -27,23 +27,31 @@ container:
   # - foo2
   # - bar2
 
-containerSpecOptions: {}
-  # dnsPolicy: ClusterFirst
-  # restartPolicy: Always
-  # schedulerName: default-scheduler
-  # terminationGracePeriodSeconds: 30
+  env:
+    # Values in the base environment will be applied across all environments, and are NOT expected to be overridden
+    # on a per-environment basis
+    base: []
+    # - name: foo
+    #   value: bar
 
-env:
-  # Values in the base environment will be applied across all environments, and are NOT expected to be overridden
-  # on a per-environment basis
-  base: []
-  # - name: foo
-  #   value: bar
+    # Values in perEnv will be local to an environment
+    perEnv: []
+    # - name: bar
+    #   value: foo
 
-  # Values in perEnv will be local to an environment
-  perEnv: []
-  # - name: bar
-  #   value: foo
+  ports: []
+  # - name: http
+  #   protocol: TCP
+  #   containerPort: 80
+
+  livenessProbe: {}
+    # httpGet:
+    #   path: /
+    #   port: http
+  readinessProbe: {}
+    # httpGet:
+    #   path: /
+    #   port: http
 
 strategy: {}
   # type: Recreate
@@ -51,26 +59,31 @@ strategy: {}
   #   maxSurge: 1
   #   maxUnavailable: 1
 
-useLiveNew: true
+containerSpecOptions: {}
+  # dnsPolicy: ClusterFirst
+  # restartPolicy: Always
+  # schedulerName: default-scheduler
+  # terminationGracePeriodSeconds: 30
 
-ports: []
-# - name: http
-#   protocol: TCP
-#   containerPort: 80
+nodeSelector: {}
 
-livenessProbe: {}
-  # httpGet:
-  #   path: /
-  #   port: http
-readinessProbe: {}
-  # httpGet:
-  #   path: /
-  #   port: http
+tolerations: []
 
+affinity: {}
+
+servicemonitor:
+  enabled: false
+
+#
+# Service variables
+#
 service:
   type: ClusterIP
   port: 80
 
+#
+# Ingress variables
+#
 ingress:
   enabled: false
   annotations: {}
@@ -97,19 +110,3 @@ resources: {}
   # requests:
   #  cpu: 100m
   #  memory: 128Mi
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
-servicemonitor:
-  enabled: false
-
-#
-# Service variables
-#
-service:
-  type: ClusterIP
-  port: 80

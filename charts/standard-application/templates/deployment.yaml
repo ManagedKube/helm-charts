@@ -6,7 +6,6 @@ metadata:
   labels:
     helm.sh/chart: {{ include "standard-application.chart" . }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-    app.tag: "{{ lower .Values.image.tag }}"
     app.selector: {{ include "standard-application.fullname" . }}
     {{- if .Values.labels }}
 {{ toYaml .Values.labels | indent 4 }}
@@ -15,7 +14,6 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.tag: "{{ lower .Values.image.tag }}"
       app.selector: {{ include "standard-application.fullname" . }}
 
   {{- if .Values.strategy }}
@@ -25,7 +23,6 @@ spec:
   template:
     metadata:
       labels:
-        app.tag: "{{ lower .Values.image.tag }}"
         app.selector: {{ include "standard-application.fullname" . }}
         {{- if .Values.labels }}
 {{ toYaml .Values.labels | indent 8 }}
@@ -35,50 +32,61 @@ spec:
 {{ toYaml .Values.containerSpecOptions | indent 6 }}
       {{- end }}
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.container.command }}
+
+        {{- range $index, $container := .Values.containers }}
+        # Container {{ $index }} - {{ $container.name }}
+        - name: {{ $container.name }}
+          image: "{{ $container.image.repository }}:{{ $container.image.tag }}"
+          imagePullPolicy: {{ $container.image.pullPolicy }}
+          {{- if $container.command }}
           command:
-{{ toYaml .Values.container.command | indent 10 }}
+{{ toYaml $container.command | indent 10 }}
           {{- end }}
-          {{- if .Values.container.args }}
+          {{- if $container.args }}
           args:
-{{ toYaml .Values.container.args | indent 10 }}
+{{ toYaml $container.args | indent 10 }}
           {{- end }}
 
-          {{- if or (gt (len .Values.env.base) 0) (gt (len .Values.env.perEnv) 0) }}
+          {{- if $container.env }}
+          {{- if or (gt (len $container.env.base) 0) (gt (len $container.env.perEnv) 0) }}
           env:
-          {{- if gt (len .Values.env.base) 0 }}
+          {{- if gt (len $container.env.base) 0 }}
           # base
-{{ toYaml .Values.env.base | indent 10 }}
+{{ toYaml $container.env.base | indent 10 }}
           {{- end }}
-          {{- if gt (len .Values.env.perEnv) 0 }}
+          {{- if gt (len $container.env.perEnv) 0 }}
           # perEnv
-{{ toYaml .Values.env.perEnv | indent 10 }}
+{{ toYaml $container.env.perEnv | indent 10 }}
+          {{- end }}
           {{- end }}
           {{- end }}
 
           # START: ports
-          {{- if .Values.ports }}
+          {{- if $container.ports }}
           ports:
-          {{- range $index, $item := .Values.ports }}
+          {{- range $index, $item := $container.ports }}
+          # Port {{ $index }}
           - containerPort: {{ $item.containerPort }}
             protocol: {{ $item.protocol }}
             name: {{ $item.name }}
           {{- end }}
           {{- end }}
           # END: ports
-          {{- if .Values.livenessProbe }}
+          {{- if $container.livenessProbe }}
           livenessProbe:
-{{ toYaml .Values.livenessProbe | indent 12 }}
+{{ toYaml $container.livenessProbe | indent 12 }}
           {{- end }}
-          {{- if .Values.readinessProbe }}
+          {{- if $container.readinessProbe }}
           readinessProbe:
-{{ toYaml .Values.readinessProbe | indent 12 }}
+{{ toYaml $container.readinessProbe | indent 12 }}
           {{- end }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml $container.resources | nindent 12 }}
+
+
+        {{- end }}
+
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
