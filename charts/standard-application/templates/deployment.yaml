@@ -33,7 +33,7 @@ spec:
       {{- end }}
       containers:
 
-        {{- range $index, $container := .Values.containers }}
+        {{- range $index, $container := .Values.deployment.containers }}
         # Container {{ $index }} - {{ $container.name }}
         - name: {{ $container.name }}
           image: "{{ $container.image.repository }}:{{ $container.image.tag }}"

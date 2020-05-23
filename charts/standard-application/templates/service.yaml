@@ -9,7 +9,7 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    {{- range $index, $container := .Values.containers }}
+    {{- range $index, $container := .Values.deployment.containers }}
       {{- range $index, $item := $container.ports }}
     - port: {{ $item.servicePort }}
       targetPort: {{ $item.name }}
