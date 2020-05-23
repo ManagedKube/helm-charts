@@ -72,6 +72,9 @@ deployment:
 
   affinity: {}
 
+#
+# Service Monitors variables
+#
 servicemonitor:
   enabled: false
 
