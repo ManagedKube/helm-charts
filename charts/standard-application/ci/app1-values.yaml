@@ -3,7 +3,7 @@ namespace: test1
 
 deployment:
   containers:
-  - name: container-name
+  - name: container-namez
     image:
       repository: gcr.io/google_containers/echoserver
       tag: "1.10"
