@@ -11,7 +11,7 @@ This chart will create these Kubernetes resources:
 
 ## Why use this chart
 Instead of having to figure out and write the Kubernetes `Deployment`, `Service`, and `Ingress` yaml files which at the minimum can be over a 100 lines, you can fill in the following and this Helm chart will generate all of the other necessary items necessary for a valid Kubernetes deployment.
-
+ 
 ```yaml
 fullnameOverride: "test-app"
 namespace: test1
