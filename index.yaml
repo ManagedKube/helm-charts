@@ -22,4 +22,18 @@ entries:
     urls:
     - https://github.com/ManagedKube/helm-charts/releases/download/renovate-19.239.11/renovate-19.239.11.tgz
     version: 19.239.11
+  standard-application:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-05-24T18:27:18.292563575Z"
+    description: A Helm chart for Kubernetes
+    digest: fadd6a7fbbe1b41f250b488f41a9efa12f1197cef7bd74eb7d4167fd9dafc7d3
+    home: https://github.com/ManagedKube/helm-charts
+    icon: https://github.com/ManagedKube/helm-charts
+    maintainers:
+    - name: Garland
+    name: standard-application
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/standard-application-1.0.0/standard-application-1.0.0.tgz
+    version: 1.0.0
 generated: "2020-05-22T00:21:41.064955629Z"
