@@ -1,3 +1,13 @@
+# Only create a service if the Deployment has exposed a port
+{{- $containerHasExposedPorts := false -}}
+{{- range $index, $container := .Values.deployment.containers }}
+  {{- range $index, $item := $container.ports }}
+    {{ $containerHasExposedPorts = true }}
+  {{- end }}
+{{- end }}
+
+{{- if  $containerHasExposedPorts }}
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -21,3 +31,4 @@ spec:
     {{- end }}
   selector:
     app.selector: {{ include "standard-application.fullname" . }}
+{{- end }}
