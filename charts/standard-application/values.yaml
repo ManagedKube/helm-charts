@@ -5,7 +5,7 @@ replicaCount: 1
 nameOverride: ""
 fullnameOverride: ""
 
-namespace: "default"
+# namespace: "default"
 
 labels: {}
   # app: api-xxx
