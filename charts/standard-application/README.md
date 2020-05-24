@@ -6,7 +6,42 @@ Current chart version is `1.0.0`
 
 Source code can be found [here](https://github.com/ManagedKube/helm-charts)
 
+## Why use this chart
+Instead of having to figure out and write the Kubernetes `Deployment`, `Service`, and `Ingress` yaml files which at the minimum can be over a 100 lines, you can fill in the following and this Helm chart will generate all of the other necessary items necessary for a valid Kubernetes deployment.
+ 
+```yaml
+fullnameOverride: "test-app"
+namespace: test1
 
+deployment:
+  containers:
+  - name: container-name
+    image:
+      repository: gcr.io/google_containers/echoserver
+      tag: "1.10"
+
+    ports:
+    - name: http
+      protocol: TCP
+      containerPort: 8080
+      servicePort: 8080
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx-external
+  paths:
+    - path: /
+      servicePort: http
+  hosts:
+    - api.example.com
+  tls:
+  - secretName: chart-example-tls
+    hosts:
+    - api.example.com
+```
+
+If you needed to make adjustments or turn various Kubernetes knobs, you can do that as well via the following configuration parameters.
 
 ## Chart Values
 

@@ -1,5 +1,5 @@
 fullnameOverride: "test-app"
-namespace: test1
+# namespace: test1
 
 deployment:
   containers:
