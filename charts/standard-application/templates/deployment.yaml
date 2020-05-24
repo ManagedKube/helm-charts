@@ -1,0 +1,103 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "standard-application.fullname" . }}
+  {{- if .Values.namespace }}
+  namespace: {{ .Values.namespace }}
+  {{- end }}
+  labels:
+    helm.sh/chart: {{ include "standard-application.chart" . }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.selector: {{ include "standard-application.fullname" . }}
+    {{- if .Values.labels }}
+{{ toYaml .Values.labels | indent 4 }}
+    {{- end }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.selector: {{ include "standard-application.fullname" . }}
+
+  {{- if .Values.strategy }}
+  strategy:
+{{ toYaml .Values.strategy | indent 4 }}
+  {{- end }}
+  template:
+    metadata:
+      labels:
+        app.selector: {{ include "standard-application.fullname" . }}
+        {{- if .Values.labels }}
+{{ toYaml .Values.labels | indent 8 }}
+        {{- end }}
+    spec:
+      {{- if .Values.containerSpecOptions }}
+{{ toYaml .Values.containerSpecOptions | indent 6 }}
+      {{- end }}
+      containers:
+
+        {{- range $index, $container := .Values.deployment.containers }}
+        # Container {{ $index }} - {{ $container.name }}
+        - name: {{ $container.name }}
+          image: "{{ $container.image.repository }}:{{ $container.image.tag }}"
+          imagePullPolicy: {{ $container.image.pullPolicy }}
+          {{- if $container.command }}
+          command:
+{{ toYaml $container.command | indent 10 }}
+          {{- end }}
+          {{- if $container.args }}
+          args:
+{{ toYaml $container.args | indent 10 }}
+          {{- end }}
+
+          {{- if $container.env }}
+          {{- if or (gt (len $container.env.base) 0) (gt (len $container.env.perEnv) 0) }}
+          env:
+          {{- if gt (len $container.env.base) 0 }}
+          # base
+{{ toYaml $container.env.base | indent 10 }}
+          {{- end }}
+          {{- if gt (len $container.env.perEnv) 0 }}
+          # perEnv
+{{ toYaml $container.env.perEnv | indent 10 }}
+          {{- end }}
+          {{- end }}
+          {{- end }}
+
+          # START: ports
+          {{- if $container.ports }}
+          ports:
+          {{- range $index, $item := $container.ports }}
+          # Port {{ $index }}
+          - containerPort: {{ $item.containerPort }}
+            protocol: {{ $item.protocol }}
+            name: {{ $item.name }}
+          {{- end }}
+          {{- end }}
+          # END: ports
+          {{- if $container.livenessProbe }}
+          livenessProbe:
+{{ toYaml $container.livenessProbe | indent 12 }}
+          {{- end }}
+          {{- if $container.readinessProbe }}
+          readinessProbe:
+{{ toYaml $container.readinessProbe | indent 12 }}
+          {{- end }}
+          resources:
+            {{- toYaml $container.resources | nindent 12 }}
+
+
+        {{- end }}
+
+
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

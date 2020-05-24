@@ -1,3 +1,3 @@
-helm-extra-args: --timeout 600s
-# check-version-increment: true
+helm-extra-args: --timeout 601s
+check-version-increment: true
 debug: true

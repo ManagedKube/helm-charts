@@ -1,0 +1,19 @@
+fullnameOverride: "test-app"
+# namespace: test1
+
+deployment:
+  containers:
+  - name: container-one
+    image:
+      repository: gcr.io/google_containers/echoserver
+      tag: "1.10"
+
+    ports:
+    - name: http1
+      protocol: TCP
+      containerPort: 1111
+      servicePort: 1111
+  - name: container-two-no-ports
+    image:
+      repository: gcr.io/google_containers/echoserver
+      tag: "1.10"

@@ -1,0 +1,27 @@
+{{- if .Values.servicemonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    release: prometheus-operator
+    helm.sh/chart: {{ include "standard-application.chart" . }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.version: {{ .Values.image.version }}
+    app.selector: {{ include "standard-application.fullname" . }}
+  name: {{ include "standard-application.fullname" . }}
+  {{- if .Values.namespace }}
+  namespace: {{ .Values.namespace }}
+  {{- end }}
+spec:
+  endpoints:
+  - interval: 30s
+    path: /
+    scheme: http
+    port: prometheus
+  namespaceSelector:
+    matchName:
+    - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app.selector: {{ include "standard-application.fullname" . }}
+{{- end }}

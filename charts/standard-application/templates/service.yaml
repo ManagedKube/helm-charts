@@ -1,0 +1,34 @@
+# Only create a service if the Deployment has exposed a port
+{{- $containerHasExposedPorts := false -}}
+{{- range $index, $container := .Values.deployment.containers }}
+  {{- range $index, $item := $container.ports }}
+    {{ $containerHasExposedPorts = true }}
+  {{- end }}
+{{- end }}
+
+{{- if  $containerHasExposedPorts }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "standard-application.fullname" . }}
+  {{- if .Values.namespace }}
+  namespace: {{ .Values.namespace }}
+  {{- end }}
+  labels:
+    helm.sh/chart: {{ include "standard-application.chart" . }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    {{- range $index, $container := .Values.deployment.containers }}
+      {{- range $index, $item := $container.ports }}
+    - port: {{ $item.servicePort }}
+      targetPort: {{ $item.name }}
+      protocol: {{ $item.protocol }}
+      name: {{ $item.name }}
+      {{- end }}
+    {{- end }}
+  selector:
+    app.selector: {{ include "standard-application.fullname" . }}
+{{- end }}

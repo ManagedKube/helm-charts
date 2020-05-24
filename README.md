@@ -10,25 +10,21 @@ This repository hosts ManagedKube's [Helm](https://helm.sh) charts. Chart docume
 ## Add Helm repository
 
 ```bash
-helm repo add managedkube https://docs.managedkube.com/helm-charts
+helm repo add managedkube https://helm-charts.managedkube.com
 helm repo update
 ```
-
-## Install chart
-
-Using config from a file:
-
-```bash
-helm install --generate-name --set-file managedkube.config=config.json managedkube/generic-application
+## Chart test
+```
+docker run -it \
+-v ${PWD}:/opt/app \
+quay.io/helmpack/chart-testing:v3.0.0-rc.1 sh
 ```
 
-Using config from a string:
-
-```bash
-helm install --generate-name --set managedkube.config='\{\"token\":\"...\"\}' managedkube/generic-application
+run linter:
 ```
-
-**NOTE**: `managedkube.config` must be a valid managedkube [self-hosted configuration](https://docs.managedkube.com/self-hosted-configuration/)
+cd /opt/app/charts
+ct lint --config /opt/app/.github/ct.yaml
+```
 
 ## Run your own helm-chart repo
 
