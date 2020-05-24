@@ -9,7 +9,9 @@ metadata:
     app.version: {{ .Values.image.version }}
     app.selector: {{ include "standard-application.fullname" . }}
   name: {{ include "standard-application.fullname" . }}
+  {{- if .Values.namespace }}
   namespace: {{ .Values.namespace }}
+  {{- end }}
 spec:
   endpoints:
   - interval: 30s

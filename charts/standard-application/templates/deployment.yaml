@@ -2,7 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "standard-application.fullname" . }}
+  {{- if .Values.namespace }}
   namespace: {{ .Values.namespace }}
+  {{- end }}
   labels:
     helm.sh/chart: {{ include "standard-application.chart" . }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
