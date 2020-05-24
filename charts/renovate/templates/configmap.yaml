@@ -7,6 +7,7 @@ metadata:
     chart: {{ template "renovate.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+    foo: bar
 data:
   config.json: |-
     {{ required "A valid .Values.renovate.config entry is required!" .Values.renovate.config | nindent 4 }}
