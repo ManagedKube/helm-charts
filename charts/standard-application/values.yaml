@@ -18,8 +18,8 @@ deployment:
   containers:
   - name: container-name
     image:
-      repository: nginx
-      tag: xxxxx
+      repository: gcr.io/google_containers/echoserver
+      tag: "1.10"
       pullPolicy: IfNotPresent
     command: []
     # - foo
