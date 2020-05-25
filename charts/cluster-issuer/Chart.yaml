@@ -1,0 +1,10 @@
+apiVersion: v2
+name: cluster-issuer
+version: v0.1.1
+appVersion: v1.0.0
+description: A Helm chart to create the cert-manager cluster issuers
+home: https://github.com/ManagedKube/helm-charts
+icon: https://github.com/ManagedKube/helm-charts
+maintainers:
+  - name: Garland
+    email: info@managedkube.com

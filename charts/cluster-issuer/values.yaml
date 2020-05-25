@@ -1,0 +1,45 @@
+---
+email: devops@managedkube.com
+
+namespace: cert-manager
+
+## Provider options: google | aws
+##
+provider: google
+
+letsencrypt:
+  server: https://acme-v02.api.letsencrypt.org/directory
+
+issuer:
+  dns:
+    enabled: false
+    name: issuer-dns01
+
+  http:
+    enabled: false
+    name: issuer-http01
+
+## AWS cluster-issuer usage:
+##
+aws: {}
+#   region: us-east-1
+#   accessKeyID: xyz
+#   accessSecret: "abc"
+#   ##
+#   ## You have the option of creating the secret manually
+#   ## The secret name must be: aws-route53-credentials-secret
+#   accessSecretFromManualSecretCreation: false
+
+## Google Cloud DNS usage:
+##
+clouddns: {}
+#   # The ID of the GCP project
+#   project: managedkube
+#   # This is the secret used to access the service account
+#   # The file name has to be "credentials.json".  The file name is put into the secret
+#   # as the key name and the chart is looking for the key name "credentials.json"
+#   # kubectl -n cert-manager create secret generic clouddns-dns01-solver-svc-acct --from-file=credentials.json
+#   # Doc: https://cert-manager.io/docs/configuration/acme/dns01/google/#set-up-a-service-account
+#   serviceAccountSecretRef:
+#     name: "clouddns-dns01-solver-svc-acct"
+#     key: credentials.json
