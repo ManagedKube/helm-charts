@@ -43,3 +43,6 @@ clouddns: {}
 #   serviceAccountSecretRef:
 #     name: "clouddns-dns01-solver-svc-acct"
 #     key: credentials.json
+
+# Used for ci tests where the cert-manager might not be installed already
+installCRDs: false
