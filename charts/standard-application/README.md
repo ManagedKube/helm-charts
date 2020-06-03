@@ -2,7 +2,7 @@ standard-application
 ====================
 A Helm chart for Kubernetes
 
-Current chart version is `1.0.1`
+Current chart version is `1.0.2`
 
 Source code can be found [here](https://github.com/ManagedKube/helm-charts)
 
@@ -58,7 +58,7 @@ If you needed to make adjustments or turn various Kubernetes knobs, you can do t
 ### Add Helm repository
 
 ```shell
-helm repo add managedkube https://docs.managedkube.com/helm-charts
+helm repo add managedkube https://helm-charts.managedkube.com
 helm repo update
 ```
 
@@ -85,6 +85,7 @@ The following table lists the configurable parameters of the chart and the defau
 | deployment.containers[0].ports | list | `[]` |  |
 | deployment.containers[0].readinessProbe | object | `{}` |  |
 | deployment.containers[0].resources | object | `{}` |  |
+| deployment.imagePullSecrets | list | `[]` |  |
 | deployment.nodeSelector | object | `{}` |  |
 | deployment.strategy | object | `{}` |  |
 | deployment.tolerations | list | `[]` |  |
@@ -100,3 +101,11 @@ The following table lists the configurable parameters of the chart and the defau
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
 | servicemonitor.enabled | bool | `false` |  |
+
+## Local Helm Testing
+
+### Temlating out values:
+
+```
+helm template --values values.yaml ./
+```
