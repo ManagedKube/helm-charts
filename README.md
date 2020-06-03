@@ -22,7 +22,7 @@ quay.io/helmpack/chart-testing:v3.0.0-rc.1 sh
 
 run linter:
 ```
-cd /opt/app/charts
+cd /opt/app
 ct lint --config /opt/app/.github/ct.yaml
 ```
 

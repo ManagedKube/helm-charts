@@ -44,6 +44,7 @@ deployment:
     # - name: http
     #   protocol: TCP
     #   containerPort: 80
+    #   servicePort: 8080
 
     livenessProbe: {}
       # httpGet:
@@ -64,6 +65,10 @@ deployment:
       # requests:
       #  cpu: 100m
       #  memory: 128Mi
+
+  imagePullSecrets: []
+  # - registry-secret-1
+  # - registry-secret-2
 
   strategy: {}
     # type: Recreate

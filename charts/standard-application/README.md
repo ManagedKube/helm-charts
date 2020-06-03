@@ -58,7 +58,7 @@ If you needed to make adjustments or turn various Kubernetes knobs, you can do t
 ### Add Helm repository
 
 ```shell
-helm repo add managedkube https://docs.managedkube.com/helm-charts
+helm repo add managedkube https://helm-charts.managedkube.com
 helm repo update
 ```
 

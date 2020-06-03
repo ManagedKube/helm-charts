@@ -89,6 +89,13 @@ spec:
         {{- end }}
 
 
+      {{- if .Values.deployment.imagePullSecrets }}
+      imagePullSecrets:      
+      {{- range .Values.deployment.imagePullSecrets }}
+      - name: {{ . }}
+      {{- end }}
+      {{- end }}
+
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
