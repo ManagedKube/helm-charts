@@ -72,6 +72,12 @@ The following table lists the configurable parameters of the chart and the defau
 
 ### Temlating out values:
 
+Testing it out with the default values.
 ```
 helm template --values values.yaml ./
+```
+
+Testing it out with a value from the `ci` folder:
+```
+helm template --values values.yaml --values ./ci/secrets-volumes-values.yaml ./
 ```

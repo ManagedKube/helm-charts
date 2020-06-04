@@ -85,6 +85,11 @@ spec:
           resources:
             {{- toYaml $container.resources | nindent 12 }}
 
+          {{- if $container.volumeMounts }}
+          # volumeMounts
+          volumeMounts:
+{{ toYaml $container.volumeMounts | indent 12 }}
+          {{- end }}
 
         {{- end }}
 
@@ -108,3 +113,8 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
+
+      {{- with .Values.volumes }}
+      # Volumes
+{{- toYaml . | nindent 8 }}
+      {{- end }}
