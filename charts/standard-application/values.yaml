@@ -69,7 +69,7 @@ deployment:
     volumeMounts: []
     # # name must match the volume name below
     # - name: secret-volume
-    #   mountPath: /etc/secret-volume      
+    #   mountPath: /etc/secret-volume
 
   imagePullSecrets: []
   # - registry-secret-1
