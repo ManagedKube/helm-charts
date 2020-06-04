@@ -95,7 +95,7 @@ deployment:
 
 #
 # Volumes - to be attached to the pod.
-# 
+#
 # This only attaches the volume to the pod.  To use it, you have to add a "volumeMounts" to
 # a container on the location to mount it to or add it the content to the "env" of a container
 # in the pod.
