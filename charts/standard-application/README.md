@@ -2,7 +2,7 @@ standard-application
 ====================
 A Helm chart for Kubernetes
 
-Current chart version is `1.0.3`
+Current chart version is `1.0.4`
 
 Source code can be found [here](https://github.com/ManagedKube/helm-charts)
 
