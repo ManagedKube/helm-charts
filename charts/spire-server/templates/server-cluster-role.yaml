@@ -21,7 +21,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: spire-server
-  namespace: spire
+  namespace: {{ .Values.namespace | default "spire" }}
 roleRef:
   kind: ClusterRole
   name: spire-server-trust-role
