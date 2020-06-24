@@ -5,4 +5,4 @@ image:
 storage:
   size: 10Gi
 
-trustedDomain: example.com
+trustedDomain: example.org
