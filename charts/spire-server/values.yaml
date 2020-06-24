@@ -6,5 +6,3 @@ storage:
   size: 10Gi
 
 trustedDomain: example.com
-
-# namespace: spire
