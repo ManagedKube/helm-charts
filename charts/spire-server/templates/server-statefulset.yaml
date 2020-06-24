@@ -2,7 +2,9 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: spire-server
+  {{- if .Values.namespace }}
   namespace: {{ .Values.namespace }}
+  {{- end }}
   labels:
     app: spire-server
 spec:
@@ -13,7 +15,9 @@ spec:
   serviceName: spire-server
   template:
     metadata:
+      {{- if .Values.namespace }}
       namespace: {{ .Values.namespace }}
+      {{- end }}
       labels:
         app: spire-server
     spec:
