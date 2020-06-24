@@ -22,6 +22,21 @@ entries:
     urls:
     - https://github.com/ManagedKube/helm-charts/releases/download/renovate-19.239.11/renovate-19.239.11.tgz
     version: 19.239.11
+  spire-agent:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-06-24T03:50:56.972259292Z"
+    description: SPIRE
+    digest: 92cebb6f7eac14437e7833e9d655907b855aefdf54760881b2f0329e92e1611b
+    home: https://github.com/ManagedKube/helm-charts
+    icon: https://github.com/ManagedKube/helm-charts
+    maintainers:
+    - email: info@managedkube.com
+      name: Garland
+    name: spire-agent
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/spire-agent-0.0.2/spire-agent-0.0.2.tgz
+    version: 0.0.2
   spire-server:
   - apiVersion: v1
     appVersion: "1.0"
