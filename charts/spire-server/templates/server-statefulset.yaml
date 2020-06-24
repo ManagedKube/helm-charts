@@ -2,9 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: spire-server
-  {{- if .Values.namespace }}
-  namespace: {{ .Values.namespace }}
-  {{- end }}
+  namespace: {{ .Release.Namespace }}
   labels:
     app: spire-server
 spec:
@@ -15,9 +13,7 @@ spec:
   serviceName: spire-server
   template:
     metadata:
-      {{- if .Values.namespace }}
-      namespace: {{ .Values.namespace }}
-      {{- end }}
+      namespace: {{ .Release.Namespace }}
       labels:
         app: spire-server
     spec:
@@ -53,7 +49,7 @@ spec:
   volumeClaimTemplates:
     - metadata:
         name: spire-data
-        namespace: {{ .Values.namespace }}
+        namespace: {{ .Release.Namespace }}
       spec:
         accessModes:
           - ReadWriteOnce
