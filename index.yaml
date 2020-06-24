@@ -22,6 +22,21 @@ entries:
     urls:
     - https://github.com/ManagedKube/helm-charts/releases/download/renovate-19.239.11/renovate-19.239.11.tgz
     version: 19.239.11
+  spire-server:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-06-24T03:32:11.589144966Z"
+    description: SPIRE
+    digest: fb07e2d11b832af4ca6a5851a38c3833bcf0c39d883ff0543dac838559188e48
+    home: https://github.com/ManagedKube/helm-charts
+    icon: https://github.com/ManagedKube/helm-charts
+    maintainers:
+    - email: info@managedkube.com
+      name: Garland
+    name: spire-server
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/spire-server-0.0.1/spire-server-0.0.1.tgz
+    version: 0.0.1
   standard-application:
   - apiVersion: v1
     appVersion: "1.0"
