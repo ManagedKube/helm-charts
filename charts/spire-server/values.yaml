@@ -6,3 +6,5 @@ storage:
   size: 10Gi
 
 trustedDomain: example.org
+
+clusterName: demo-cluster

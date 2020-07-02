@@ -6,3 +6,5 @@ trustedDomain: example.org
 
 sds:
   enabled: true
+
+clusterName: demo-cluster
