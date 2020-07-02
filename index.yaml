@@ -25,6 +25,20 @@ entries:
   spire-agent:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2020-07-02T18:05:58.852932794Z"
+    description: SPIRE
+    digest: f0636693a2f2e8c24d259ccce56c17308d4c0d5d5029369b41b1cd1952584cc2
+    home: https://github.com/ManagedKube/helm-charts
+    icon: https://github.com/ManagedKube/helm-charts
+    maintainers:
+    - email: info@managedkube.com
+      name: Garland
+    name: spire-agent
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/spire-agent-0.0.4/spire-agent-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2020-06-24T03:56:32.716644073Z"
     description: SPIRE
     digest: 9e2cc0a835a8dc9f2250211cca02442ba01b4708004a3505a66cd33fc80d95b3
@@ -52,6 +66,20 @@ entries:
     - https://github.com/ManagedKube/helm-charts/releases/download/spire-agent-0.0.2/spire-agent-0.0.2.tgz
     version: 0.0.2
   spire-server:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-07-02T18:05:58.976135045Z"
+    description: SPIRE
+    digest: aafbe4cb5044507a1bf3d4626542f039dbe697b33b6ab0090914cad09459cec3
+    home: https://github.com/ManagedKube/helm-charts
+    icon: https://github.com/ManagedKube/helm-charts
+    maintainers:
+    - email: info@managedkube.com
+      name: Garland
+    name: spire-server
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/spire-server-0.0.4/spire-server-0.0.4.tgz
+    version: 0.0.4
   - apiVersion: v1
     appVersion: "1.0"
     created: "2020-06-24T03:56:32.812794663Z"
