@@ -3,3 +3,6 @@ image:
   tag: "0.10.0"
 
 trustedDomain: example.org
+
+sds:
+  enabled: true
