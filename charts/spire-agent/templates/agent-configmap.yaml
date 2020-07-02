@@ -13,13 +13,14 @@ data:
       socket_path = "/run/spire/sockets/agent.sock"
       trust_bundle_path = "/run/spire/bundle/bundle.crt"
       trust_domain = "{{ .Values.trustedDomain }}"
+      enable_sds = {{ .Values.sds.enabled }}
     }
 
     plugins {
       NodeAttestor "k8s_sat" {
         plugin_data {
           # NOTE: Change this to your cluster name
-          cluster = "demo-cluster"
+          cluster = "{{ .Values.clusterName }}"
         }
       }
 
