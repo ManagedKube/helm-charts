@@ -1,0 +1,24 @@
+{{ template "chart.header" . }}
+{{ template "chart.description" . }}
+
+{{ template "chart.versionLine" . }}
+
+{{ template "chart.sourceLinkLine" . }}
+
+A Helm chart to create the cert-manager cluster issuers
+
+## Installation
+
+### Add Helm repository
+
+```shell
+helm repo add managedkube https://docs.managedkube.com/helm-charts
+helm repo update
+```
+
+
+## Configuration
+
+The following table lists the configurable parameters of the chart and the default values.
+
+{{ template "chart.valuesSection" . }}
