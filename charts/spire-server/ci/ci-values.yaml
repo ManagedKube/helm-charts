@@ -1,8 +1,34 @@
 image:
   repository: gcr.io/spiffe-io/spire-server
-  tag: "0.10.0"
+  tag: "0.11.1"
 
 storage:
   size: 10Gi
 
-trustedDomain: example.com
+trustedDomain: example.org
+
+clusterName: demo-cluster
+
+service:
+  type: NodePort
+  ports:
+  - name: grpc
+    port: 8081
+    targetPort: 8081
+    protocol: TCP
+
+federation:
+  enabled: false
+  serverConf: |
+    federation {
+        bundle_endpoint {
+            address = "0.0.0.0"
+            port = 32100
+        }
+        federates_with "foo" {
+            bundle_endpoint {
+                address = "10.0.0.22"
+                port = 32200
+            }
+        }
+    }
