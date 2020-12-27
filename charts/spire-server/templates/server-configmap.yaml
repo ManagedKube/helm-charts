@@ -11,8 +11,9 @@ data:
       registration_uds_path = "/tmp/spire-registration.sock"
       trust_domain = "{{ .Values.trustedDomain }}"
       {{- if .Values.federation.enabled }}
-{{ .Values.federation.serverConf }}
-      {{- end }}
+      # Federation settings
+        {{- .Values.federation.serverConf | nindent 6 -}}
+      {{- end -}}
       data_dir = "/run/spire/data"
       log_level = "DEBUG"
       #AWS requires the use of RSA.  EC cryptography is not supported

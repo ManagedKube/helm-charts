@@ -9,6 +9,14 @@ trustedDomain: example.org
 
 clusterName: demo-cluster
 
+service:
+  type: NodePort
+  ports:
+  - name: grpc
+    port: 8081
+    targetPort: 8081
+    protocol: TCP
+
 federation:
   enabled: false
   serverConf: |
