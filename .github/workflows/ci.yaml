@@ -13,10 +13,9 @@ jobs:
         uses: actions/checkout@v1
       - name: Run chart-testing (lint)
         uses: helm/chart-testing-action@v2.0.1
-        run: ct lint
-        #with:
-        #  command: lint
-        #  config: .github/ct.yaml
+        with:
+          command: lint
+          config: .github/ct.yaml
 
   lint-docs:
     runs-on: ubuntu-latest
