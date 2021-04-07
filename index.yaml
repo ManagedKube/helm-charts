@@ -3,6 +3,20 @@ entries:
   locust:
   - apiVersion: v1
     appVersion: 1.4.1
+    created: "2021-04-07T17:04:31.681770174Z"
+    description: A chart for locust
+    digest: fbf794b0668e27b7730206f1dbfb77e812c8dfa79e778e008739017f9f1d365c
+    home: https://github.com/locustio/locust
+    icon: https://locust.io/static/img/logo.png
+    maintainers:
+    - email: max.williams@deliveryhero.com
+      name: max-rocket-internet
+    name: locust
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/locust-0.9.10/locust-0.9.10.tgz
+    version: 0.9.10
+  - apiVersion: v1
+    appVersion: 1.4.1
     created: "2021-03-01T23:49:38.91015266Z"
     description: A chart for locust
     digest: ffa74e0f77095cc694fdf7ea361c1bf3b334585f9becdfc4b87b7b7bee0a0aa5
@@ -154,6 +168,20 @@ entries:
   standard-application:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2021-04-07T17:04:31.768596165Z"
+    description: A Helm chart for Kubernetes
+    digest: c0fba673627e56b98b754d5132f65c126d7432ee54a7647d60d40a2436549f33
+    home: https://github.com/ManagedKube/helm-charts
+    icon: https://github.com/ManagedKube/helm-charts
+    maintainers:
+    - email: info@managedkube.com
+      name: Garland
+    name: standard-application
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/standard-application-1.0.6/standard-application-1.0.6.tgz
+    version: 1.0.6
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2020-06-04T22:57:06.446322762Z"
     description: A Helm chart for Kubernetes
     digest: 9b6b49db418841eb4b6b51ca7f5cc9729b7f0ba68c208cc531659587e9d023b0
@@ -221,4 +249,4 @@ entries:
     urls:
     - https://github.com/ManagedKube/helm-charts/releases/download/standard-application-1.0.0/standard-application-1.0.0.tgz
     version: 1.0.0
-generated: "2021-03-01T23:49:38.910193759Z"
+generated: "2021-04-07T17:04:31.768650865Z"
