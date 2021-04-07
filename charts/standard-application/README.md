@@ -2,7 +2,7 @@ standard-application
 ====================
 A Helm chart for Kubernetes
 
-Current chart version is `1.0.4`
+Current chart version is `1.0.5`
 
 Source code can be found [here](https://github.com/ManagedKube/helm-charts)
 
@@ -91,6 +91,13 @@ The following table lists the configurable parameters of the chart and the defau
 | deployment.strategy | object | `{}` |  |
 | deployment.tolerations | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
+| hpa.enabled | bool | `false` |  |
+| hpa.spec.maxReplicas | int | `10` |  |
+| hpa.spec.minReplicas | int | `1` |  |
+| hpa.spec.scaleTargetRef.apiVersion | string | `"apps/v1"` |  |
+| hpa.spec.scaleTargetRef.kind | string | `"Deployment"` |  |
+| hpa.spec.scaleTargetRef.name | string | `"standard-application"` |  |
+| hpa.spec.targetCPUUtilizationPercentage | int | `50` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0] | string | `"chart-example.local"` |  |

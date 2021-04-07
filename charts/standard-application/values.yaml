@@ -1,5 +1,8 @@
 # Default values for standard-application.
 
+#
+# ReplicaCount denotes how many pods you want
+#
 replicaCount: 1
 
 nameOverride: ""
@@ -140,3 +143,17 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+#
+# HPA
+#
+hpa:
+  enabled: false
+  spec:
+    scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: standard-application
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
