@@ -1,38 +1,14 @@
-# locust
+locust
+======
+A chart for locust
 
-A chart to install Locust, a scalable load testing tool written in Python.
+Current chart version is `0.9.9`
 
-This chart will setup everything required to run a full distributed locust environment with any amount of workers.
+Source code can be found [here](https://github.com/locustio/locust)
 
-This chart will also create configmaps for storing the locust files in Kubernetes, this way there is no need to build custom docker images.
 
-By default it will install using an example locustfile and lib from [stable/locust/locustfiles/example](https://github.com/locustio/helm-chart/tree/master/stable/locust/locustfiles/example). When you want to provide your own locustfile, you will need to create 2 configmaps using the structure from that example:
 
-```console
-kubectl create configmap my-loadtest-locustfile --from-file path/to/your/main.py
-kubectl create configmap my-loadtest-lib --from-file path/to/your/lib/
-```
-
-And then install the chart passing the names of those configmaps as values:
-
-```console
-helm install locust ./stable/locust \
-  --set loadtest.name=my-loadtest \
-  --set loadtest.locust_locustfile_configmap=my-loadtest-locustfile \
-  --set loadtest.locust_lib_configmap=my-loadtest-lib
-```
-
-**Homepage:** <https://github.com/locustio/locust>
-
-## How to install this chart
-
-Check out this repo and then install the chart:
-
-```console
-helm install my-release ./stable/locust -f values.yaml
-```
-
-## Values
+## Chart Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
