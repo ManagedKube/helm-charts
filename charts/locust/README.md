@@ -2,7 +2,7 @@ locust
 ======
 A chart for locust
 
-Current chart version is `0.9.9`
+Current chart version is `0.9.10`
 
 Source code can be found [here](https://github.com/locustio/locust)
 
