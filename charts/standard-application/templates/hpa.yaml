@@ -1,0 +1,9 @@
+{{- if .Values.hpa.enabled -}}
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "standard-application.fullname" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+{{ toYaml .Values.hpa.spec | indent 2 }}
+{{- end }}
