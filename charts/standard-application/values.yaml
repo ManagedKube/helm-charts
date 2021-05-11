@@ -112,6 +112,9 @@ volumes: []
 #     # Provide the name of the ConfigMap containing the files you want
 #     # to add to the container
 #     name: special-config
+#  - name: persistent-storage
+#    persistentVolumeClaim:
+#      claimName: my-pvc-name
 
 #
 # Service Monitors variables
