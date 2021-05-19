@@ -18,6 +18,13 @@ labels: {}
 # Deployment variables
 #
 deployment:
+  enableInitContainer: false
+  initContainers:
+  - name: init-container-name
+    image: docker.io/my-container:foo
+    # any other init container usage spec: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#init-containers-in-use
+    # This usage is different than the below "containers" section.  This section will directly output the following yaml list into
+    # the following location in the deployment spec: "spec.template.spec.initContainers".
   containers:
   - name: container-name
     image:
