@@ -18,6 +18,17 @@ labels: {}
 # Deployment variables
 #
 deployment:
+  #
+  # deployment spec template annotations
+  #
+  annotations: {}
+    # prometheus.io/path: /stats/prometheus
+    # prometheus.io/port: "15020"
+    # prometheus.io/scrape: "true"
+    # sidecar.istio.io/status: '{"initContainers":["istio-init"],"containers":["istio-proxy"],"volumes":["istio-envoy","istio-data","istio-podinfo","istio-token","istiod-ca-cert"],"imagePullSecrets":null}'
+  #
+  # Enable initContainers definition
+  #
   enableInitContainer: false
   initContainers:
   - name: init-container-name
@@ -25,6 +36,9 @@ deployment:
     # any other init container usage spec: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#init-containers-in-use
     # This usage is different than the below "containers" section.  This section will directly output the following yaml list into
     # the following location in the deployment spec: "spec.template.spec.initContainers".
+  #
+  # containers definition
+  #
   containers:
   - name: container-name
     image:
@@ -75,6 +89,17 @@ deployment:
       # requests:
       #  cpu: 100m
       #  memory: 128Mi
+
+    securityContext: {}
+      # allowPrivilegeEscalation: false
+      # capabilities:
+      #   drop:
+      #   - ALL
+      # privileged: false
+      # readOnlyRootFilesystem: true
+      # runAsGroup: 1337
+      # runAsNonRoot: true
+      # runAsUser: 1337
 
     volumeMounts: []
     # # name must match the volume name below
