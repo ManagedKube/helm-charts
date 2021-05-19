@@ -35,6 +35,14 @@ spec:
       {{- if .Values.containerSpecOptions }}
 {{ toYaml .Values.containerSpecOptions | indent 6 }}
       {{- end }}
+
+
+      {{- if .Values.deployment.enableInitContainer }}
+      # enabling initContainer(s)
+      initContainers:
+{{ toYaml .Values.deployment.initContainers | indent 8 }}
+      {{- end }}
+
       containers:
 
         {{- range $index, $container := .Values.deployment.containers }}

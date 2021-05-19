@@ -18,6 +18,11 @@ labels: {}
 # Deployment variables
 #
 deployment:
+  enableInitContainer: false
+  initContainers:
+  - name: init-container-name
+    image: docker.io/my-container:foo
+    # any other init container usage spec: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#init-containers-in-use
   containers:
   - name: container-name
     image:
