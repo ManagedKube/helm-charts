@@ -26,6 +26,8 @@ spec:
   {{- end }}
   template:
     metadata:
+      annotations:
+{{ toYaml .Values.deployment.annotations | indent 8 }}
       labels:
         app.selector: {{ include "standard-application.fullname" . }}
         {{- if .Values.labels }}
@@ -94,6 +96,9 @@ spec:
           {{- end }}
           resources:
             {{- toYaml $container.resources | nindent 12 }}
+
+          securityContext:
+            {{- toYaml $container.securityContext | nindent 12 }}
 
           {{- if $container.volumeMounts }}
           # volumeMounts
