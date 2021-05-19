@@ -168,6 +168,20 @@ entries:
   standard-application:
   - apiVersion: v1
     appVersion: "1.0"
+    created: "2021-05-19T03:04:15.535518802Z"
+    description: A Helm chart for Kubernetes
+    digest: 9c44d0e7a300c0385f6ce24a2db38958c284847461ce03b8d196f706390a7575
+    home: https://github.com/ManagedKube/helm-charts
+    icon: https://github.com/ManagedKube/helm-charts
+    maintainers:
+    - email: info@managedkube.com
+      name: Garland
+    name: standard-application
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/standard-application-1.0.10/standard-application-1.0.10.tgz
+    version: 1.0.10
+  - apiVersion: v1
+    appVersion: "1.0"
     created: "2021-04-07T17:46:19.685302337Z"
     description: A Helm chart for Kubernetes
     digest: fcb7970f6038bb29a9da15e4a8217ad589eaf08f0a3a76328582733c18903680
@@ -263,4 +277,4 @@ entries:
     urls:
     - https://github.com/ManagedKube/helm-charts/releases/download/standard-application-1.0.0/standard-application-1.0.0.tgz
     version: 1.0.0
-generated: "2021-04-07T17:46:19.685355337Z"
+generated: "2021-05-19T03:04:15.535594808Z"
