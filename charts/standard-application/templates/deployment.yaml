@@ -74,6 +74,10 @@ spec:
           {{- end }}
           {{- end }}
           {{- end }}
+          {{- if $container.envFrom }}
+          envFrom:
+{{ toYaml $container.envFrom | indent 10 }}
+          {{- end }}
 
           # START: ports
           {{- if $container.ports }}

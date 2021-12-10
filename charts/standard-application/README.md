@@ -77,6 +77,7 @@ The following table lists the configurable parameters of the chart and the defau
 | deployment.containers[0].command | list | `[]` |  |
 | deployment.containers[0].env.base | list | `[]` |  |
 | deployment.containers[0].env.perEnv | list | `[]` |  |
+| deployment.containers[0].envFrom | list | `[]` |  |
 | deployment.containers[0].image.pullPolicy | string | `"IfNotPresent"` |  |
 | deployment.containers[0].image.repository | string | `"gcr.io/google_containers/echoserver"` |  |
 | deployment.containers[0].image.tag | string | `"1.10"` |  |

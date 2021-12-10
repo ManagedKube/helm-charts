@@ -64,6 +64,10 @@ deployment:
       # - name: bar
       #   value: foo
 
+    envFrom: []
+    # - secretRef:
+    #     name: mysecret
+
     ports: []
     # - name: http
     #   protocol: TCP
