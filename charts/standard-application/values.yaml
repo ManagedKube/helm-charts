@@ -193,3 +193,12 @@ hpa:
     minReplicas: 1
     maxReplicas: 10
     targetCPUUtilizationPercentage: 50
+
+#
+# Service Account variables
+#
+serviceaccount:
+  enabled: false
+  annotations: {}
+    # eks.amazonaws.com/role-arn: arn:aws:iam::1234567890:role/my-role
+  labels: {}
