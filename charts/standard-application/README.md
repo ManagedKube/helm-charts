@@ -2,7 +2,7 @@ standard-application
 ====================
 A Helm chart for Kubernetes
 
-Current chart version is `1.0.7`
+Current chart version is `1.0.13`
 
 Source code can be found [here](https://github.com/ManagedKube/helm-charts)
 
@@ -72,6 +72,7 @@ The following table lists the configurable parameters of the chart and the defau
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | deployment.affinity | object | `{}` |  |
+| deployment.annotations | object | `{}` |  |
 | deployment.containerSpecOptions | object | `{}` |  |
 | deployment.containers[0].args | list | `[]` |  |
 | deployment.containers[0].command | list | `[]` |  |
@@ -86,8 +87,12 @@ The following table lists the configurable parameters of the chart and the defau
 | deployment.containers[0].ports | list | `[]` |  |
 | deployment.containers[0].readinessProbe | object | `{}` |  |
 | deployment.containers[0].resources | object | `{}` |  |
+| deployment.containers[0].securityContext | object | `{}` |  |
 | deployment.containers[0].volumeMounts | list | `[]` |  |
+| deployment.enableInitContainer | bool | `false` |  |
 | deployment.imagePullSecrets | list | `[]` |  |
+| deployment.initContainers[0].image | string | `"docker.io/my-container:foo"` |  |
+| deployment.initContainers[0].name | string | `"init-container-name"` |  |
 | deployment.nodeSelector | object | `{}` |  |
 | deployment.strategy | object | `{}` |  |
 | deployment.tolerations | list | `[]` |  |
@@ -109,6 +114,9 @@ The following table lists the configurable parameters of the chart and the defau
 | replicaCount | int | `1` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
+| serviceaccount.annotations | object | `{}` |  |
+| serviceaccount.enabled | bool | `false` |  |
+| serviceaccount.labels | object | `{}` |  |
 | servicemonitor.enabled | bool | `false` |  |
 | volumes | list | `[]` |  |
 
