@@ -71,6 +71,7 @@ The following table lists the configurable parameters of the chart and the defau
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| automountServiceAccountToken | bool | `true` |  |
 | deployment.affinity | object | `{}` |  |
 | deployment.annotations | object | `{}` |  |
 | deployment.containerSpecOptions | object | `{}` |  |
