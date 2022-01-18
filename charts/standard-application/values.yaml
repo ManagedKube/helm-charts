@@ -202,3 +202,5 @@ serviceaccount:
   annotations: {}
     # eks.amazonaws.com/role-arn: arn:aws:iam::1234567890:role/my-role
   labels: {}
+
+automountServiceAccountToken: true
