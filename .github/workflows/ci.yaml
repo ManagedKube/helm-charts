@@ -34,6 +34,7 @@ jobs:
     strategy:
       matrix:
         k8s:
+          # Releases: https://kubernetes.io/releases/
           - v1.23.1
           - v1.22.5
           - v1.21.8
@@ -56,10 +57,11 @@ jobs:
     strategy:
       matrix:
         k8s:
-          - v1.23.1
-          - v1.22.5
-          - v1.21.8
-          - v1.20.14
+          # Releases: https://github.com/kubernetes-sigs/kind/releases
+          - v1.23.0
+          - v1.22.0
+          - v1.21.1
+          - v1.20.7
     steps:
       - name: Checkout
         uses: actions/checkout@v1
