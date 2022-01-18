@@ -13,6 +13,10 @@ metadata:
 {{ toYaml .Values.labels | indent 4 }}
     {{- end }}
 spec:
+  {{- if .Values.serviceaccount.enabled }}
+  serviceAccountName: {{ include "standard-application.fullname" . }}
+  {{- end }}
+  automountServiceAccountToken: {{ .Values.automountServiceAccountToken }}
   {{- if not .Values.hpa.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
