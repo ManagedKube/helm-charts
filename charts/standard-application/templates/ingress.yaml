@@ -34,14 +34,14 @@ spec:
     - host: {{ . | quote }}
       http:
         paths:
-	{{- range $ingressPaths }}
+        {{- range $ingressPaths }}
           - path: {{ .path }}
-	    pathType: Prefix
+            pathType: Prefix
             backend:
               service:
                 name: {{ $fullName }}
                 port:
                   number: {{ .servicePort }}
-	{{- end }}
+        {{- end }}
   {{- end }}
 {{- end }}
