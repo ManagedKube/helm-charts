@@ -1,10 +1,8 @@
-standard-application
-====================
+# standard-application
+
 A Helm chart for Kubernetes
 
-Current chart version is `1.0.19`
-
-Source code can be found [here](https://github.com/ManagedKube/helm-charts)
+Current Chart version: 1.0.20
 
 This `standard-application` Helm Chart can cover most needs for when you want to deploy your web application container to Kubernetes.  Instead of writing your own custom Helm Chart you can use this or use this as a starting point.
 
@@ -17,7 +15,7 @@ This chart will create these Kubernetes resources:
 
 ## Why use this chart
 Instead of having to figure out and write the Kubernetes `Deployment`, `Service`, and `Ingress` yaml files which at the minimum can be over a 100 lines, you can fill in the following and this Helm chart will generate all of the other necessary items necessary for a valid Kubernetes deployment.
- 
+
 ```yaml
 fullnameOverride: "test-app"
 namespace: test1
@@ -52,7 +50,6 @@ ingress:
 
 If you needed to make adjustments or turn various Kubernetes knobs, you can do that as well via the following configuration parameters.
 
-
 ## Installation
 
 ### Add Helm repository
@@ -62,12 +59,11 @@ helm repo add managedkube https://helm-charts.managedkube.com
 helm repo update
 ```
 
-
 ## Configuration
 
 The following table lists the configurable parameters of the chart and the default values.
 
-## Chart Values
+## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -90,6 +86,7 @@ The following table lists the configurable parameters of the chart and the defau
 | deployment.containers[0].resources | object | `{}` |  |
 | deployment.containers[0].securityContext | object | `{}` |  |
 | deployment.containers[0].volumeMounts | list | `[]` |  |
+| deployment.enable | bool | `true` |  |
 | deployment.enableInitContainer | bool | `false` |  |
 | deployment.imagePullSecrets | list | `[]` |  |
 | deployment.initContainers[0].image | string | `"docker.io/my-container:foo"` |  |
@@ -119,6 +116,11 @@ The following table lists the configurable parameters of the chart and the defau
 | serviceaccount.enabled | bool | `false` |  |
 | serviceaccount.labels | object | `{}` |  |
 | servicemonitor.enabled | bool | `false` |  |
+| statefulset.enable | bool | `false` |  |
+| volumeClaimTemplates[0].metadata.name | string | `"www"` |  |
+| volumeClaimTemplates[0].spec.accessModes[0] | string | `"ReadWriteOnce"` |  |
+| volumeClaimTemplates[0].spec.resources.requests.storage | string | `"1Gi"` |  |
+| volumeClaimTemplates[0].spec.storageClassName | string | `"my-storage-class"` |  |
 | volumes | list | `[]` |  |
 
 ## Local Helm Testing

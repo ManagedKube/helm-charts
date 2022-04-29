@@ -18,6 +18,7 @@ labels: {}
 # Deployment variables
 #
 deployment:
+  enable: true
   #
   # deployment spec template annotations
   #
@@ -148,6 +149,19 @@ volumes: []
 #     # Provide the name of the ConfigMap containing the files you want
 #     # to add to the container
 #     name: special-config
+
+statefulset:
+  enable: false
+
+volumeClaimTemplates:
+- metadata:
+    name: www
+  spec:
+    accessModes: [ "ReadWriteOnce" ]
+    storageClassName: "my-storage-class"
+    resources:
+      requests:
+        storage: 1Gi
 
 #
 # Service Monitors variables
