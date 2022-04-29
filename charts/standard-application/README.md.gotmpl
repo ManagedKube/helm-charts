@@ -1,9 +1,7 @@
 {{ template "chart.header" . }}
 {{ template "chart.description" . }}
 
-{{ template "chart.versionLine" . }}
-
-{{ template "chart.sourceLinkLine" . }}
+Current Chart version: {{ template "chart.version" . }}
 
 This `standard-application` Helm Chart can cover most needs for when you want to deploy your web application container to Kubernetes.  Instead of writing your own custom Helm Chart you can use this or use this as a starting point.
 
