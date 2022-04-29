@@ -1,10 +1,8 @@
-renovate
-========
+# renovate
+
 Universal dependency update tool that fits into your workflows.
 
-Current chart version is `19.239.11`
-
-Source code can be found [here](https://github.com/renovatebot/renovate)
+19.239.11
 
 ## Installation
 
@@ -35,7 +33,7 @@ helm install --generate-name --set renovate.config='\{\"token\":\"...\"\}' renov
 
 The following table lists the configurable parameters of the chart and the default values.
 
-## Chart Values
+## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
