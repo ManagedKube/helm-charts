@@ -2,7 +2,11 @@
 
 A Helm chart for Kubernetes
 
+<<<<<<< HEAD
 Current Chart version: 1.0.23
+=======
+Current Chart version: 1.0.22
+>>>>>>> 77711fe997b5203c55c9f7dbf4fe4797211afd14
 
 This `standard-application` Helm Chart can cover most needs for when you want to deploy your web application container to Kubernetes.  Instead of writing your own custom Helm Chart you can use this or use this as a starting point.
 
