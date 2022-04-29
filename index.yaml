@@ -3,6 +3,20 @@ entries:
   locust:
   - apiVersion: v1
     appVersion: 1.4.1
+    created: "2022-04-29T23:32:31.288348507Z"
+    description: A chart for locust
+    digest: aa81bdca6ebcbd5dd30ee9ca00936629936b82a7d9e33d90c7a226a00948d25a
+    home: https://github.com/locustio/locust
+    icon: https://locust.io/static/img/logo.png
+    maintainers:
+    - email: max.williams@deliveryhero.com
+      name: max-rocket-internet
+    name: locust
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/locust-0.9.12/locust-0.9.12.tgz
+    version: 0.9.12
+  - apiVersion: v1
+    appVersion: 1.4.1
     created: "2021-04-07T17:04:31.681770174Z"
     description: A chart for locust
     digest: fbf794b0668e27b7730206f1dbfb77e812c8dfa79e778e008739017f9f1d365c
@@ -30,6 +44,27 @@ entries:
     - https://github.com/ManagedKube/helm-charts/releases/download/locust-0.9.9/locust-0.9.9.tgz
     version: 0.9.9
   renovate:
+  - apiVersion: v1
+    appVersion: 19.239.11
+    created: "2022-04-29T23:32:31.369181886Z"
+    description: Universal dependency update tool that fits into your workflows.
+    digest: e56167a4b2205dba1f39921a7bd3f3c40505f5c2d2f4a7849431aaa9ac22591c
+    home: https://github.com/renovatebot/renovate
+    icon: https://docs.renovatebot.com/assets/images/logo.png
+    keywords:
+    - automated
+    - dependencies
+    - dependency
+    - management
+    - update
+    maintainers:
+    - name: JamieMagee
+    name: renovate
+    sources:
+    - https://github.com/renovatebot/renovate
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/renovate-19.239.12/renovate-19.239.12.tgz
+    version: 19.239.12
   - apiVersion: v1
     appVersion: 19.239.11
     created: "2020-05-22T00:21:41.164952779Z"
@@ -166,6 +201,20 @@ entries:
     - https://github.com/ManagedKube/helm-charts/releases/download/spire-server-0.0.1/spire-server-0.0.1.tgz
     version: 0.0.1
   standard-application:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-04-29T23:32:31.452502708Z"
+    description: A Helm chart for Kubernetes
+    digest: 84770b2699dd6a16a881bf06a2af27499983e2899a3388a9b68265e0a2947ba3
+    home: https://github.com/ManagedKube/helm-charts
+    icon: https://github.com/ManagedKube/helm-charts
+    maintainers:
+    - email: info@managedkube.com
+      name: Garland
+    name: standard-application
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/standard-application-1.0.23/standard-application-1.0.23.tgz
+    version: 1.0.23
   - apiVersion: v1
     appVersion: "1.0"
     created: "2022-02-17T04:14:28.740711951Z"
@@ -403,4 +452,4 @@ entries:
     urls:
     - https://github.com/ManagedKube/helm-charts/releases/download/standard-application-1.0.0/standard-application-1.0.0.tgz
     version: 1.0.0
-generated: "2022-02-17T04:14:28.740857776Z"
+generated: "2022-04-29T23:32:31.452716521Z"
