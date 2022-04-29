@@ -2,7 +2,7 @@
 
 Universal dependency update tool that fits into your workflows.
 
-19.239.11
+19.239.12
 
 ## Installation
 
