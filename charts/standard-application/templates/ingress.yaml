@@ -9,7 +9,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: IngressClass
 metadata:
-  name: .Values.ingress.ingressClass.name
+  name: {{ $fullName }}
 spec:
   {{- with .Values.ingress.ingressClass.spec }}
     {{- toYaml . | nindent 2 }}
@@ -35,6 +35,7 @@ metadata:
   {{- end }}
 
 spec:
+  ingressClassName: {{ $fullName }}
 {{- if .Values.ingress.tls }}
   tls:
   {{- range .Values.ingress.tls }}
@@ -52,7 +53,7 @@ spec:
         paths:
         {{- range $ingressPaths }}
           - path: {{ .path }}
-            pathType: .pathType
+            pathType: {{ .pathType }}
             backend:
               service:
                 name: {{ $fullName }}

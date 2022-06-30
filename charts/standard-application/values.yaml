@@ -196,7 +196,8 @@ ingress:
   #      - chart-example.local
   ingressClass:
     enabled: true
-    name: istio
+    # The `ingressClassName` name will be named after the chart.
+    # This will allow each instantiation of this chart to control it's own ingressClass.
     # Docs: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingressclass-scope
     spec:
       controller: istio.io/ingress-controller
