@@ -187,7 +187,7 @@ ingress:
   paths: []
     # - path: /api
     #   pathType: Prefix
-    #   servicePort: http
+    #   servicePort: 80
   hosts:
     - chart-example.local
   tls: []
