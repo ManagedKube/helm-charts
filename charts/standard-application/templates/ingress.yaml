@@ -12,7 +12,6 @@ metadata:
   name: istio
 spec:
   {{- with .Values.ingress.ingressClass.spec }}
-  spec:
     {{- toYaml . | nindent 2 }}
   {{- end }}
 {{- end }}
