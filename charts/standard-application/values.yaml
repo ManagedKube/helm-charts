@@ -193,7 +193,21 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-
+  ingressClass:
+    enabled: true
+    name: istio
+    # Docs: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingressclass-scope
+    spec:
+      controller: istio.io/ingress-controller
+      # parameters:
+      #   # The parameters for this IngressClass are specified in a
+      #   # ClusterIngressParameter (API group k8s.example.net) named
+      #   # "external-config-1". This definition tells Kubernetes to
+      #   # look for a cluster-scoped parameter resource.
+      #   scope: Cluster
+      #   apiGroup: k8s.example.net
+      #   kind: ClusterIngressParameter
+      #   name: external-config-1
 #
 # HPA
 #
