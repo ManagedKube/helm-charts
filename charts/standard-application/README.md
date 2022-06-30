@@ -2,7 +2,7 @@
 
 A Helm chart for Kubernetes
 
-Current Chart version: 1.0.24
+Current Chart version: 1.0.25
 
 This `standard-application` Helm Chart can cover most needs for when you want to deploy your web application container to Kubernetes.  Instead of writing your own custom Helm Chart you can use this or use this as a starting point.
 
@@ -106,7 +106,6 @@ The following table lists the configurable parameters of the chart and the defau
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0] | string | `"chart-example.local"` |  |
 | ingress.ingressClass.enabled | bool | `true` |  |
-| ingress.ingressClass.name | string | `"istio"` |  |
 | ingress.ingressClass.spec.controller | string | `"istio.io/ingress-controller"` |  |
 | ingress.paths | list | `[]` |  |
 | ingress.tls | list | `[]` |  |
