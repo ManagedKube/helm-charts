@@ -106,7 +106,6 @@ The following table lists the configurable parameters of the chart and the defau
 | ingress.enabled | bool | `false` |  |
 | ingress.hosts[0] | string | `"chart-example.local"` |  |
 | ingress.ingressClass.enabled | bool | `true` |  |
-| ingress.ingressClass.name | string | `"istio"` |  |
 | ingress.ingressClass.spec.controller | string | `"istio.io/ingress-controller"` |  |
 | ingress.paths | list | `[]` |  |
 | ingress.tls | list | `[]` |  |
