@@ -9,7 +9,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: IngressClass
 metadata:
-  name: istio
+  name: .Values.ingress.ingressClass.name
 spec:
   {{- with .Values.ingress.ingressClass.spec }}
     {{- toYaml . | nindent 2 }}
@@ -52,7 +52,7 @@ spec:
         paths:
         {{- range $ingressPaths }}
           - path: {{ .path }}
-            pathType: Prefix
+            pathType: .pathType
             backend:
               service:
                 name: {{ $fullName }}

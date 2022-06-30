@@ -186,6 +186,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   paths: []
     # - path: /api
+    #   pathType: Prefix
     #   servicePort: http
   hosts:
     - chart-example.local
