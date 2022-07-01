@@ -1,0 +1,15 @@
+{{- if .Values.istio.virtualService.enabled -}}
+{{- $fullName := include "standard-application.fullname" . -}}
+---
+apiVersion: {{ .Values.istio.virtualService.apiVersion }}
+kind: VirtualService
+metadata:
+  name: {{ $fullName }}
+spec:
+  hosts: {{ .Values.istio.virtualService.hosts }}
+  gateways: {{ .Values.istio.virtualService.gateways }}
+  {{- with .Values.istio.virtualService.protocolDefinition }}
+    {{- toYaml . | nindent 2 }}
+  {{- end }}
+
+{{- end }}
