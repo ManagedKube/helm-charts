@@ -5,7 +5,6 @@ apiVersion: {{ .Values.istio.virtualService.apiVersion }}
 kind: VirtualService
 metadata:
   name: {{ $fullName }}
-  namespace: {{ $fullName }}
 spec:
   hosts: {{ .Values.istio.virtualService.hosts }}
   gateways: {{ .Values.istio.virtualService.gateways }}
