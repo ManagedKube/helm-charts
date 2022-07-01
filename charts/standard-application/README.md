@@ -110,7 +110,7 @@ The following table lists the configurable parameters of the chart and the defau
 | ingress.paths | list | `[]` |  |
 | ingress.tls | list | `[]` |  |
 | istio.virtualService.apiVersion | string | `"networking.istio.io/v1alpha3"` |  |
-| istio.virtualService.enabled | bool | `true` |  |
+| istio.virtualService.enabled | bool | `false` |  |
 | istio.virtualService.gateways[0] | string | `"istio-system/main-gateway"` |  |
 | istio.virtualService.hosts[0] | string | `"www.example.com"` |  |
 | istio.virtualService.protocolDefinition.http[0].match[0].uri.prefix | string | `"/"` |  |
