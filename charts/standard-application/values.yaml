@@ -218,7 +218,7 @@ istio:
   ##
   ## https://istio.io/latest/docs/reference/config/networking/virtual-service/
   virtualService:
-    enabled: true
+    enabled: false
     apiVersion: networking.istio.io/v1alpha3
     gateways:
     # <namespace>/gateway-name
