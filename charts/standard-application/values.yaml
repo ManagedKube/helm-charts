@@ -214,11 +214,17 @@ ingress:
 #
 # Istio virtual service
 #
+# If you are using Istio, you should probably use the Istio gateway and virtual services
+# instead of the Kubernetes Ingress method to create an ingress/inbound endpoint for 
+# your application.  While using the Kubernetes Ingress will work you can potentiall
+# run into HTTP/2 connection reuse issues outlined here: 
+# https://istio.io/latest/docs/ops/common-problems/network-issues/#404-errors-occur-when-multiple-gateways-configured-with-same-tls-certificate
+# By using the Istio's gateway and virtual service method, you can over come this.
 istio:
   ##
   ## https://istio.io/latest/docs/reference/config/networking/virtual-service/
   virtualService:
-    enabled: true
+    enabled: false
     apiVersion: networking.istio.io/v1alpha3
     gateways:
     # <namespace>/gateway-name
