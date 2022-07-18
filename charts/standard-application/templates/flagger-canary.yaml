@@ -1,0 +1,19 @@
+{{- if .Values.flux.flagger.enabled -}}
+{{- $fullName := include "standard-application.fullname" . -}}
+## Flux Flagger
+## Source: https://github.com/fluxcd/flagger
+## What this does: Flagger is a tool to help you to do various type of deployments
+## onto a Kubernetes cluster.  While Kubernetes gives us a deployment style such
+## as a rolling deployment but it doesnt provide us with something like a canary
+## release that can look at metrics before rolling out more.
+---
+apiVersion: {{ .Values.flux.flagger.apiVersion }}
+kind: Canary
+metadata:
+  name: {{ $fullName }}
+spec:
+  {{- with .Values.flux.flagger.spec }}
+    {{- toYaml . | nindent 2 }}
+  {{- end }}
+
+{{- end }}
