@@ -100,15 +100,15 @@ The following table lists the configurable parameters of the chart and the defau
 | flux.flagger.spec.analysis.maxWeight | int | `50` |  |
 | flux.flagger.spec.analysis.stepWeight | int | `5` |  |
 | flux.flagger.spec.analysis.threshold | int | `10` |  |
-| flux.flagger.spec.analysis.webhooks[0].metadata.cmd | string | `"hey -z 1m -q 10 -c 2 http://x2-auth-d-canary.x2-ops/"` |  |
+| flux.flagger.spec.analysis.webhooks[0].metadata.cmd | string | `"hey -z 1m -q 10 -c 2 http://example-app.example-app-namespace:8080/"` |  |
 | flux.flagger.spec.analysis.webhooks[0].name | string | `"load-test"` |  |
 | flux.flagger.spec.analysis.webhooks[0].timeout | string | `"5s"` |  |
 | flux.flagger.spec.analysis.webhooks[0].type | string | `"rollout"` |  |
 | flux.flagger.spec.analysis.webhooks[0].url | string | `"http://loadtester.flagger-test/"` |  |
-| flux.flagger.spec.service.port | int | `80` |  |
+| flux.flagger.spec.service.port | int | `8080` |  |
 | flux.flagger.spec.targetRef.apiVersion | string | `"apps/v1"` |  |
 | flux.flagger.spec.targetRef.kind | string | `"Deployment"` |  |
-| flux.flagger.spec.targetRef.name | string | `"x2-auth-d"` |  |
+| flux.flagger.spec.targetRef.name | string | `"example-app"` |  |
 | fullnameOverride | string | `""` |  |
 | hpa.enabled | bool | `false` |  |
 | hpa.spec.maxReplicas | int | `10` |  |
