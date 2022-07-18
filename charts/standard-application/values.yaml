@@ -288,7 +288,7 @@ flux:
         kind: Deployment
         name: example-app
       service:
-        port: 80
+        port: 8080
       analysis:
         interval: 1m
         threshold: 10
@@ -322,4 +322,4 @@ flux:
             url: http://loadtester.flagger-test/
             timeout: 5s
             metadata:
-              cmd: "hey -z 1m -q 10 -c 2 http://example-app.example-app-namespace/"
+              cmd: "hey -z 1m -q 10 -c 2 http://example-app.example-app-namespace:8080/"
