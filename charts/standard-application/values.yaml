@@ -269,3 +269,58 @@ serviceaccount:
   labels: {}
 
 automountServiceAccountToken: true
+
+#
+# Flux Flagger
+#
+## Source: https://github.com/fluxcd/flagger
+## What this does: Flagger is a tool to help you to do various type of deployments
+## onto a Kubernetes cluster.  While Kubernetes gives us a deployment style such
+## as a rolling deployment but it doesnt provide us with something like a canary
+## release that can look at metrics before rolling out more.
+flux:
+  flagger:
+    enabled: false
+    apiVersion: flagger.app/v1beta1
+    spec:
+      targetRef:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: x2-auth-d
+      service:
+        port: 80
+      analysis:
+        interval: 1m
+        threshold: 10
+        maxWeight: 50
+        stepWeight: 5
+        # metrics:
+        #   - name: request-success-rate
+        #     thresholdRange:
+        #       min: 99
+        #     interval: 1m
+        #   - name: request-duration
+        #     thresholdRange:
+        #       max: 500
+        #     interval: 1m
+        webhooks:
+          ##########################################################################
+          ## Manual Gating
+          ## Doc: https://docs.flagger.app/usage/webhooks?q=prometheus#manual-gating
+          ##########################################################################
+          # - name: "gate"
+          #   type: confirm-rollout
+          #   url: http://loadtester.flagger-test/gate/halt
+          #   # url: http://loadtester.flagger-test/gate/approve
+
+          ##########################################################################
+          ## Istio canary
+          ## Doc: https://docs.flagger.app/tutorials/istio-progressive-delivery
+          ##########################################################################
+          - name: load-test
+            type: rollout
+            url: http://loadtester.flagger-test/
+            timeout: 5s
+            metadata:
+              cmd: "hey -z 1m -q 10 -c 2 http://x2-auth-d-canary.x2-ops/"
+
