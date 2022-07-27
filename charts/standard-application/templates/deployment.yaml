@@ -9,7 +9,7 @@ metadata:
   labels:
     helm.sh/chart: {{ include "standard-application.chart" . }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-    app.selector: {{ include "standard-application.fullname" . }}
+    app.kubernetes.io/name: {{ include "standard-application.fullname" . }}
     {{- if .Values.labels }}
 {{ toYaml .Values.labels | indent 4 }}
     {{- end }}
@@ -19,7 +19,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      app.selector: {{ include "standard-application.fullname" . }}
+      app.kubernetes.io/name: {{ include "standard-application.fullname" . }}
 
   {{- if .Values.strategy }}
   strategy:
@@ -30,7 +30,7 @@ spec:
       annotations:
 {{ toYaml .Values.deployment.annotations | indent 8 }}
       labels:
-        app.selector: {{ include "standard-application.fullname" . }}
+        app.kubernetes.io/name: {{ include "standard-application.fullname" . }}
         {{- if .Values.labels }}
 {{ toYaml .Values.labels | indent 8 }}
         {{- end }}
