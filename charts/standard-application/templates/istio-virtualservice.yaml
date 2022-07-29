@@ -6,9 +6,7 @@ kind: VirtualService
 metadata:
   name: {{ $fullName }}
 spec:
-  hosts: {{ .Values.istio.virtualService.hosts }}
-  gateways: {{ .Values.istio.virtualService.gateways }}
-  {{- with .Values.istio.virtualService.protocolDefinition }}
+  {{- with .Values.istio.virtualService.spec }}
     {{- toYaml . | nindent 2 }}
   {{- end }}
 
