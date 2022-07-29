@@ -2,7 +2,7 @@
 
 A Helm chart for Kubernetes
 
-Current Chart version: 1.0.31
+Current Chart version: 1.0.32
 
 This `standard-application` Helm Chart can cover most needs for when you want to deploy your web application container to Kubernetes.  Instead of writing your own custom Helm Chart you can use this or use this as a starting point.
 
@@ -125,12 +125,13 @@ The following table lists the configurable parameters of the chart and the defau
 | ingress.paths | list | `[]` |  |
 | ingress.tls | list | `[]` |  |
 | istio.virtualService.apiVersion | string | `"networking.istio.io/v1alpha3"` |  |
-| istio.virtualService.enabled | bool | `false` |  |
-| istio.virtualService.gateways[0] | string | `"istio-system/main-gateway"` |  |
-| istio.virtualService.hosts[0] | string | `"www.example.com"` |  |
-| istio.virtualService.protocolDefinition.http[0].match[0].uri.prefix | string | `"/"` |  |
-| istio.virtualService.protocolDefinition.http[0].route[0].destination.host | string | `"example-app"` |  |
-| istio.virtualService.protocolDefinition.http[0].route[0].destination.port.number | int | `8080` |  |
+| istio.virtualService.enabled | bool | `true` |  |
+| istio.virtualService.spec.gateways[0] | string | `"istio-system/main-gateway"` |  |
+| istio.virtualService.spec.hosts[0] | string | `"www.example.com"` |  |
+| istio.virtualService.spec.hosts[1] | string | `"foo.com"` |  |
+| istio.virtualService.spec.protocolDefinition.http[0].match[0].uri.prefix | string | `"/"` |  |
+| istio.virtualService.spec.protocolDefinition.http[0].route[0].destination.host | string | `"example-app"` |  |
+| istio.virtualService.spec.protocolDefinition.http[0].route[0].destination.port.number | int | `8080` |  |
 | labels | object | `{}` |  |
 | nameOverride | string | `""` |  |
 | replicaCount | int | `1` |  |

@@ -224,26 +224,28 @@ istio:
   ##
   ## https://istio.io/latest/docs/reference/config/networking/virtual-service/
   virtualService:
-    enabled: false
+    enabled: true
     apiVersion: networking.istio.io/v1alpha3
-    gateways:
-    # <namespace>/gateway-name
-    - istio-system/main-gateway
-    hosts:
-    - www.example.com
-    ##
-    ## The definition for the http, tls, tcp, etc.  Per the istio virtual service doc
-    ## This template will just put everything under "protocolDefinition" into the virtualservice
-    protocolDefinition:
-      http:
-      - match:
-        - uri:
-            prefix: /
-        route:
-        - destination:
-            port:
-              number: 8080
-            host: example-app
+    spec:
+      gateways:
+      # <namespace>/gateway-name
+      - istio-system/main-gateway
+      hosts:
+      - www.example.com
+      - foo.com
+      ##
+      ## The definition for the http, tls, tcp, etc.  Per the istio virtual service doc
+      ## This template will just put everything under "protocolDefinition" into the virtualservice
+      protocolDefinition:
+        http:
+        - match:
+          - uri:
+              prefix: /
+          route:
+          - destination:
+              port:
+                number: 8080
+              host: example-app
 
 #
 # HPA
