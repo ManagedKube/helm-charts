@@ -30,5 +30,5 @@ spec:
       {{- end }}
     {{- end }}
   selector:
-    app.selector: {{ include "standard-application.fullname" . }}
+    app.kubernetes.io/name: {{ include "standard-application.fullname" . }}
 {{- end }}
