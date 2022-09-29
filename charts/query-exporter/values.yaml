@@ -60,6 +60,9 @@ env: {}
 # For db_connetrions_string please use this template
 # dialect[+driver]://[username:password][@host:port]/database[?option=value&...]
 
+# For db_connections ssl string use this template
+#  DB_CONNECTION_STRING : mysql+mysqldb://user:password@server.com/db?ssl_ca=/etc/ssl/certs/query-exporter-cert-db.pem
+
 secrets: {}
 #  DB_CONNECTION_STRING: postgresql://postgres:password@pghost:5432/postgres
 
