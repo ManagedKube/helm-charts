@@ -109,6 +109,22 @@ extraVolumeMounts: {}
 #    readOnly: true
 #    name: query-exporter-conf
 
+# SSL Implementation
+#extraVolumeMounts: 
+#- mountPath: /etc/ssl/certs/query-exporter-cert-db.pem
+#  subPath: query-exporter-cert-db.pem
+#  name: query-exporter-cert-db
+#  readOnly: true
+
+#extraVolumes:
+#- configMap:
+#    items:
+#      - key: query-exporter-cert-db.pem
+#        path: query-exporter-cert-db.pem
+#    name: query-exporter-cert-db
+#  name: query-exporter-cert-db
+
+
 metrics:
   serviceMonitor:
     enabled: false
