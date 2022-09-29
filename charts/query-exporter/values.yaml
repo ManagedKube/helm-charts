@@ -113,7 +113,7 @@ extraVolumeMounts: {}
 #    name: query-exporter-conf
 
 
-# Implementation of SSL encrypted connection to the database.
+# Implementation of SSL/TLS encrypted connection to the database.
 # The certificate for ssl is something generic, it is implemented in any 
 # database implementation, be it cloud or on-premise; however, we want to 
 # guide ourselves in something so that when we return to this in 6 months 
@@ -122,6 +122,12 @@ extraVolumeMounts: {}
 # For that reason we attach documentation of aws rds aurora mysql to guide 
 # us in the configuration
 # https://docs.amazonaws.cn/en_us/AmazonRDS/latest/UserGuide/ssl-certificate-rotation-mysql.html
+
+# How to enforce for MYSQL SSL/TLS
+# Amazon RDS now support to enforce SSL/TLS connections, it is usefull in terms
+# of security side compliance.
+# flag: require_secure_transport: true
+# Docs: https://aws.amazon.com/about-aws/whats-new/2022/08/amazon-rds-mysql-supports-ssl-tls-connections/ 
 
 #extraVolumeMounts: 
 #- mountPath: /etc/ssl/certs/query-exporter-cert-db.pem
