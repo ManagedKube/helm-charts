@@ -126,7 +126,10 @@ extraVolumeMounts: {}
 # How to enforce for MYSQL SSL/TLS
 # Amazon RDS now support to enforce SSL/TLS connections, it is usefull in terms
 # of security side compliance.
-# flag: require_secure_transport: true
+# flag: require_secure_transport
+# if your flag is require_secure_transport: true you need to enable the follwing section
+# extraVolumeMounts,extraVolumes and cert_db in order to upload a valid cert
+# inside the conectainer and it could be perform a ssl/tls secure connection.
 # Docs: https://aws.amazon.com/about-aws/whats-new/2022/08/amazon-rds-mysql-supports-ssl-tls-connections/ 
 
 #extraVolumeMounts: 
