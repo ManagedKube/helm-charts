@@ -151,3 +151,5 @@ exporter_config: |
       databases: [db1]
       metrics: [metric1]
       sql: SELECT random() / 1000000000000000 AS metric1
+
+cert_db: ""
