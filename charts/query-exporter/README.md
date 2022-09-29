@@ -64,4 +64,3 @@ A Helm chart for Kubernetes to run query-exporter
 | strategy.rollingUpdate.maxUnavailable | int | `0` |  |
 | strategy.type | string | `"RollingUpdate"` |  |
 | tolerations | list | `[]` |  |
-| cert_db | string | `""` | `"CERT_CA text mode able to ssl connection"`  |
