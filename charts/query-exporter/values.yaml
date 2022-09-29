@@ -112,7 +112,17 @@ extraVolumeMounts: {}
 #    readOnly: true
 #    name: query-exporter-conf
 
-# SSL Implementation
+
+# Implementation of SSL encrypted connection to the database.
+# The certificate for ssl is something generic, it is implemented in any 
+# database implementation, be it cloud or on-premise; however, we want to 
+# guide ourselves in something so that when we return to this in 6 months 
+# we know what we are talking about.
+
+# For that reason we attach documentation of aws rds aurora mysql to guide 
+# us in the configuration
+# https://docs.amazonaws.cn/en_us/AmazonRDS/latest/UserGuide/ssl-certificate-rotation-mysql.html
+
 #extraVolumeMounts: 
 #- mountPath: /etc/ssl/certs/query-exporter-cert-db.pem
 #  subPath: query-exporter-cert-db.pem
