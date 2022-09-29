@@ -135,8 +135,10 @@ extraVolumeMounts: {}
 # Where can I get a cert for RDS?
 # To get a certificate bundle that contains both the intermediate and root certificates for all AWS Regions, 
 # download from https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem.
+# Note: Also you can download your certificate bundle according to your region 
+# in the Certificate bundles for AWS Regions section.
 # ref: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html
-# Note: If your rds is in a vpc, you can use ca certificates, you must request them from your ops company department.
+
 
 #extraVolumeMounts: 
 #- mountPath: /etc/ssl/certs/query-exporter-cert-db.pem
