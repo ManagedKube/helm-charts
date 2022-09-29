@@ -11,6 +11,7 @@ A Helm chart for Kubernetes to run query-exporter
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| cert_db | string | `""` |  |
 | env | object | `{}` |  |
 | existingSecret | string | `""` |  |
 | exporter_config | string | `"databases:\n  db1:\n    dsn: env:DB_CONNECTION_STRING\n\nmetrics:\n  metrics1:\n    type: gauge\n    description: Blocks count\n\nqueries:\n  query1:\n    interval: 5\n    databases: [db1]\n    metrics: [metric1]\n    sql: SELECT random() / 1000000000000000 AS metric1\n"` |  |
