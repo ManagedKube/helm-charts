@@ -2,7 +2,7 @@
 
 A Helm chart for Kubernetes to run query-exporter
 
-Current Chart version: 0.1.3
+Current Chart version: 0.1.4
 
 A Helm chart for Kubernetes to run query-exporter
 
