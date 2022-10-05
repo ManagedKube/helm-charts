@@ -1,3 +1,0 @@
-image:
-  repository: gcr.io/spiffe-io/spire-agent
-  tag: "0.10.0"
