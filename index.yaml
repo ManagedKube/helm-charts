@@ -43,6 +43,21 @@ entries:
     urls:
     - https://github.com/ManagedKube/helm-charts/releases/download/locust-0.9.9/locust-0.9.9.tgz
     version: 0.9.9
+  query-exporter:
+  - apiVersion: v1
+    appVersion: 2.7.0
+    created: "2022-10-06T15:37:54.946781606Z"
+    description: A Helm chart for Kubernetes to run query-exporter
+    digest: 24369a831decfec461e151aad85f63466f17751a328c0aeb49f3a185bc4ab9c8
+    home: https://github.com/albertodonato/query-exporter
+    icon: https://helm.sh/img/helm-logo.svg
+    keywords:
+    - exporter
+    - prometheus
+    name: query-exporter
+    urls:
+    - https://github.com/ManagedKube/helm-charts/releases/download/query-exporter-0.1.4/query-exporter-0.1.4.tgz
+    version: 0.1.4
   renovate:
   - apiVersion: v1
     appVersion: 19.239.11
@@ -592,4 +607,4 @@ entries:
     urls:
     - https://github.com/ManagedKube/helm-charts/releases/download/standard-application-1.0.0/standard-application-1.0.0.tgz
     version: 1.0.0
-generated: "2022-07-29T23:29:02.403592227Z"
+generated: "2022-10-06T15:37:54.946929709Z"
