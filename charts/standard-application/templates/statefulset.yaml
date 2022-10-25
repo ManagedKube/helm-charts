@@ -67,6 +67,12 @@ spec:
 {{ toYaml $container.args | indent 10 }}
           {{- end }}
 
+          # lifecycle handlers
+          {{- if $container.lifecycle }}
+          lifecycle:
+{{ toYaml $container.lifecycle | indent 12 }}
+          {{- end }}
+
           {{- if $container.env }}
           {{- if or (gt (len $container.env.base) 0) (gt (len $container.env.perEnv) 0) }}
           env:
