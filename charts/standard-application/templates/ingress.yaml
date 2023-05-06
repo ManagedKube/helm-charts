@@ -6,7 +6,7 @@
 # Ingress class
 # docs: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: IngressClass
 metadata:
   name: {{ $fullName }}
