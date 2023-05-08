@@ -3,7 +3,20 @@ entries:
   standard-application:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-05-05T20:16:48.544895-05:00"
+    created: "2023-05-08T08:24:57.227381-05:00"
+    description: A Helm chart for Kubernetes
+    digest: d1f95d16a5175785c30b7e974a1d95f33a0fe93e41da7ca1c051273bf66d5338
+    home: https://github.com/ericksoen/helm-charts
+    icon: https://github.com/ericksoen/helm-charts
+    maintainers:
+    - name: ericksoen
+    name: standard-application
+    urls:
+    - https://ericksoen.github.io/helm-charts/packages/standard-application-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2023-05-08T08:24:57.226517-05:00"
     description: A Helm chart for Kubernetes
     digest: f86c70bc2d7b012def919d22311b47a02a01a4ed86a5ca932eada9c0b30e2d4f
     home: https://github.com/ericksoen/helm-charts
@@ -16,7 +29,7 @@ entries:
     version: 1.0.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-05-05T20:16:48.542842-05:00"
+    created: "2023-05-08T08:24:57.22561-05:00"
     description: A Helm chart for Kubernetes
     digest: 73aa5f4059ab9e313b539aac3537efa67f6e231ca452372b2dfb4e6361b23da4
     home: https://github.com/ericksoen/helm-charts
@@ -27,4 +40,4 @@ entries:
     urls:
     - https://ericksoen.github.io/helm-charts/packages/standard-application-1.0.1.tgz
     version: 1.0.1
-generated: "2023-05-05T20:16:48.541773-05:00"
+generated: "2023-05-08T08:24:57.222307-05:00"

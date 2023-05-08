@@ -200,7 +200,7 @@ ingress:
     # This will allow each instantiation of this chart to control it's own ingressClass.
     # Docs: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingressclass-scope
     spec:
-      controller: istio.io/ingress-controller
+      controller: k8s.io/ingress-nginx
       # parameters:
       #   # The parameters for this IngressClass are specified in a
       #   # ClusterIngressParameter (API group k8s.example.net) named
